@@ -5,14 +5,10 @@ from reportlab.platypus import (
 )
 from reportlab.lib.styles import getSampleStyleSheet
 
-def create_pdf(
-    content: str,
-    filename: str
-):
 
-    pdf = SimpleDocTemplate(
-        filename
-    )
+def create_pdf(content: str, filename: str):
+
+    pdf = SimpleDocTemplate(filename)
 
     styles = getSampleStyleSheet()
 

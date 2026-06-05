@@ -6,8 +6,10 @@ from app.services.pdf_service import create_pdf
 
 router = APIRouter()
 
+
 class PDFRequest(BaseModel):
     content: str
+
 
 @router.post("/notes")
 async def export_notes_pdf(
@@ -24,6 +26,7 @@ async def export_notes_pdf(
         media_type="application/pdf",
         filename="notes.pdf"
     )
+
 
 @router.post("/exam")
 async def export_exam_pdf(
