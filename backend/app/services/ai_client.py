@@ -29,7 +29,12 @@ def ask_ai(prompt: str):
 
     result = response.json()
 
+    print(result)
+
     if "choices" in result:
         return result["choices"][0]["message"]["content"]
+
+    if "error" in result:
+        return f"AI Error: {result['error']['message']}"
 
     return str(result)
