@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from app.database.mongodb import client
 from app.api.user import router as user_router
 from app.api.auth import router as auth_router
+from app.api.student import router as student_router
+from app.api.teacher import router as teacher_router
 
 app = FastAPI(
     title="EduVerse AI",
@@ -17,6 +19,16 @@ app.include_router(
     auth_router,
     prefix="/auth",
     tags=["Authentication"]
+)
+app.include_router(
+    student_router,
+    prefix="/student",
+    tags=["Student"]
+)
+app.include_router(
+    teacher_router,
+    prefix="/teacher",
+    tags=["Teacher"]
 )
 
 @app.get("/")
