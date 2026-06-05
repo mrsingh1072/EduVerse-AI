@@ -11,6 +11,7 @@ from app.api.tutor import router as tutor_router
 from app.api.notes import router as notes_router
 from app.api.exam import router as exam_router
 from app.api.assignment import router as assignment_router
+from app.api.pdf import router as pdf_router
 
 app = FastAPI(
     title="EduVerse AI",
@@ -71,6 +72,11 @@ app.include_router(
     assignment_router,
     prefix="/ai/assignment-check",
     tags=["Assignment Evaluation"]
+)
+app.include_router(
+    pdf_router,
+    prefix="/pdf",
+    tags=["PDF Export"]
 )
 
 @app.get("/")
