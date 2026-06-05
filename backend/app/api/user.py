@@ -2,6 +2,8 @@ from fastapi import APIRouter
 from app.schemas.user import UserRegister
 from app.models.user import user_collection
 from app.utils.security import hash_password
+from fastapi import Depends
+from app.dependencies.auth import get_current_user
 
 router = APIRouter()
 
@@ -17,9 +19,6 @@ async def register_user(user: UserRegister):
             "message": "Email already exists"
         }
 
-    print(user.password)
-    print(type(user.password))
-    print(len(user.password))
 
     user_data = {
         "name": user.name,
@@ -35,3 +34,8 @@ async def register_user(user: UserRegister):
     return {
         "message": "User registered successfully"
     }
+@router.get("/me")
+async def get_me(
+    current_user=Depends(get_current_user)
+):
+    return current_user
