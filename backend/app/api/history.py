@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Depends
 from app.database.mongodb import db
 from app.dependencies.auth import get_current_user
+from bson import ObjectId
 
 router = APIRouter()
 
@@ -142,3 +143,21 @@ async def get_history_by_type(
         history.append(item)
 
     return history
+@router.delete("/{history_id}")
+async def delete_history_record(
+    history_id: str,
+    current_user=Depends(
+        get_current_user
+    )
+):
+
+    result = await db.chat_history.delete_one(
+        {
+            "_id": ObjectId(history_id),
+            "user_email": current_user["email"]
+        }
+    )
+
+    return {
+        "deleted_count": result.deleted_count
+    }
