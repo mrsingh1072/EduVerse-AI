@@ -5,11 +5,9 @@ def evaluate_assignment(
 ):
 
     prompt = f"""
-You are EduVerse AI Assignment Evaluator.
+You are an experienced college professor.
 
-Evaluate the student's assignment.
-
-Assignment:
+Evaluate the following student assignment:
 
 {assignment}
 
@@ -18,9 +16,11 @@ Provide:
 1. Marks out of 10
 2. Strengths
 3. Weaknesses
-4. Suggestions for Improvement
+4. Suggestions
+5. Final Remark
 
-Give feedback in a professional and student-friendly format.
+Do not ask for more information.
+Assume this is the complete submission.
 """
 
     return ask_ai(prompt)

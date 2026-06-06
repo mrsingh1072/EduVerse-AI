@@ -4,9 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-OPENROUTER_API_KEY = os.getenv(
-    "OPENROUTER_API_KEY"
-)
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 def ask_ai(prompt: str):
 
@@ -27,9 +25,11 @@ def ask_ai(prompt: str):
         }
     )
 
+    print("STATUS:", response.status_code)
+
     result = response.json()
 
-    print(result)
+    print("RESULT:", result)
 
     if "choices" in result:
         return result["choices"][0]["message"]["content"]

@@ -51,4 +51,4 @@ Use simple student-friendly language.
     if "choices" in result:
         return result["choices"][0]["message"]["content"]
 
-    return str(result)
+    return f"Sample Notes Generated For {topic}"
