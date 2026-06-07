@@ -107,6 +107,13 @@ async def admin_dashboard():
     total_admins = await db.users.count_documents(
         {"role": "admin"}
     )
+    total_assignments = await db.assignments.count_documents(
+    {}
+    )
+
+    total_submissions = await db.submissions.count_documents(
+    {}
+    )
 
     total_activities = await db.chat_history.count_documents({})
 
@@ -156,6 +163,8 @@ async def admin_dashboard():
         "totalStudents": total_students,
         "totalTeachers": total_teachers,
         "totalAdmins": total_admins,
+        "totalAssignments": total_assignments,
+        "totalSubmissions": total_submissions,
         "totalActivities": total_activities,
         "mostUsedFeature": most_used_feature,
         "latestUser": (
