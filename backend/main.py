@@ -18,6 +18,7 @@ from app.api.avatar import router as avatar_router
 from app.api.teacher_assignment import (
     router as teacher_assignment_router
 )
+from app.api.submission import router as submission_router
 
 app = FastAPI(
     title="EduVerse AI",
@@ -103,6 +104,11 @@ app.include_router(
     teacher_assignment_router,
     prefix="/teacher/assignments",
     tags=["Teacher Assignments"]
+)
+app.include_router(
+    submission_router,
+    prefix="/submissions",
+    tags=["Submissions"]
 )
 
 @app.get("/")
