@@ -15,14 +15,25 @@ async def get_profile(
     )
 
     return {
-        "name": user["name"],
-        "email": user["email"],
-        "role": user["role"],
-        "college": user.get("college", ""),
-        "department": user.get("department", ""),
-        "semester": user.get("semester", ""),
-        "bio": user.get("bio", "")
-    }
+    "name": user["name"],
+    "email": user["email"],
+    "role": user["role"],
+
+    "college": user.get("college", ""),
+
+    "branch": user.get("branch", ""),
+    "semester": user.get("semester", ""),
+    "division": user.get("division", ""),
+    "roll_number": user.get("roll_number", ""),
+
+    "department": user.get("department", ""),
+    "subjects": user.get("subjects", []),
+
+    "designation": user.get("designation", ""),
+    "experience": user.get("experience", 0),
+
+    "bio": user.get("bio", "")
+}
 @router.put("/")
 async def update_profile(
     profile: ProfileUpdate,
@@ -35,11 +46,22 @@ async def update_profile(
         },
         {
             "$set": {
-                "college": profile.college,
-                "department": profile.department,
-                "semester": profile.semester,
-                "bio": profile.bio
-            }
+
+    "college": profile.college,
+
+    "branch": profile.branch,
+    "semester": profile.semester,
+    "division": profile.division,
+    "roll_number": profile.roll_number,
+
+    "department": profile.department,
+    "subjects": profile.subjects,
+
+    "designation": profile.designation,
+    "experience": profile.experience,
+
+    "bio": profile.bio
+}
         }
     )
 
