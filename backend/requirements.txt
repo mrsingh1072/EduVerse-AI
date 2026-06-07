@@ -93,6 +93,7 @@ jupyterlab_server==2.27.3
 kiwisolver==1.4.8
 lark==1.2.2
 lazy_loader==0.4
+lxml==6.1.1
 markdown-it-py==4.0.0
 MarkupSafe==3.0.2
 matplotlib==3.10.1
@@ -150,10 +151,12 @@ Pygments==2.19.2
 pymongo==4.15.5
 PyMySQL==1.1.2
 pyparsing==3.2.3
+PyPDF2==3.0.1
 pytest==7.4.2
 pytest-cov==4.1.0
 pytest-flask==1.2.0
 python-dateutil==2.9.0.post0
+python-docx==1.2.0
 python-dotenv==1.0.0
 python-jose==3.5.0
 python-json-logger==3.3.0
@@ -164,6 +167,7 @@ pywinpty==2.0.15
 PyYAML==6.0
 pyzmq==27.0.1
 referencing==0.36.2
+reportlab==4.5.1
 requests==2.34.2
 requests-toolbelt==1.0.0
 rfc3339-validator==0.1.4
@@ -230,4 +234,3 @@ websockets==15.0.1
 Werkzeug==3.0.0
 xlrd==2.0.2
 yfinance==0.2.55
-reportlab
