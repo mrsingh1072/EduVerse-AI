@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export default function CTA() {
   const containerVariants = {
@@ -43,13 +44,24 @@ export default function CTA() {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
           >
-            <motion.button
-              whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gold text-dark font-bold py-3 px-7 rounded-lg text-lg flex items-center gap-2 hover:bg-yellow-500 transition-colors"
-            >
-              Get Started Free <ArrowRight size={20} />
-            </motion.button>
+            <Link to="/register">
+  <motion.button
+    whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}
+    whileTap={{ scale: 0.95 }}
+    className="bg-gold text-dark font-bold py-3 px-7 rounded-lg text-lg flex items-center gap-2 hover:bg-yellow-500 transition-colors"
+  >
+    Create Free Account <ArrowRight size={20} />
+  </motion.button>
+</Link>
+<Link to="/login">
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="bg-white/20 border-2 border-white text-white font-bold py-3 px-7 rounded-lg text-lg backdrop-blur-md hover:bg-white/30 transition-all"
+  >
+    Sign In
+  </motion.button>
+</Link>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

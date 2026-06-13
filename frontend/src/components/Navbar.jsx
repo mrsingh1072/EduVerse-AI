@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -48,22 +49,30 @@ export default function Navbar() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-outline"
-            >
-              Sign In
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-primary"
-            >
-              Get Started
-            </motion.button>
-          </div>
+          {/* CTA Buttons */}
+<div className="hidden md:flex items-center gap-4">
+
+  <Link to="/login">
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="btn-outline"
+    >
+      Sign In
+    </motion.button>
+  </Link>
+
+  <Link to="/register">
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="btn-primary"
+    >
+      Get Started
+    </motion.button>
+  </Link>
+
+</div>
 
           {/* Mobile Menu Button */}
           <button
@@ -93,9 +102,22 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="flex flex-col gap-3 pt-4 border-t">
-                <button className="btn-outline w-full">Sign In</button>
-                <button className="btn-primary w-full">Get Started</button>
-              </div>
+
+  <Link
+    to="/login"
+    className="btn-outline w-full text-center"
+  >
+    Sign In
+  </Link>
+
+  <Link
+    to="/register"
+    className="btn-primary w-full text-center"
+  >
+    Get Started
+  </Link>
+
+</div>
             </div>
           </motion.div>
         )}
